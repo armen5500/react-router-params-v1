@@ -1,0 +1,32 @@
+.Dashboard {
+  width: 50%;
+  height: 100vh;
+  background: #232F3E;
+  color: white;
+  overflow: auto;
+
+
+  .dashboard-container {
+      .dashboard-content {
+
+        .dashboard {
+          list-style: none;
+          >li {
+            a {
+              color: white;
+              text-decoration: none;
+            }
+            ul {
+                li {
+                  a {
+                    &.active {
+                      color: #79D1CC;
+                    }
+                  }
+                }
+            }
+          }
+        }
+      }
+  }
+}
