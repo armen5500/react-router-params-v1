@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-// import { NavLink } from 'react-router-dom';
+import { connect } from "react-redux";
+
+import { usersDataAction } from "../../action";
 
 import "./style.scss";
 import { NavLink } from "react-router-dom";
 
-const Dashboard = () => {
+const Dashboard = ({ usersDataAction }) => {
+  // console.log("usersDataAction",usersDataAction)
   const [data, setDate] = useState([]);
   // console.log(data)
 
@@ -14,8 +17,9 @@ const Dashboard = () => {
     const response = await request.json();
     // console.log("response" , response)
     setDate(response);
+    usersDataAction(response);
   };
-  console.log(fetchUsers);
+  // console.log(fetchUsers);
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -33,7 +37,7 @@ const Dashboard = () => {
               <ul>
                 {data.map(({ login, id }) => (
                   <li key={id}>
-                    <NavLink exact to={`/user/${id}`}>
+                    <NavLink exact to={`/${id}`}>
                       {login}
                     </NavLink>
                   </li>
@@ -46,4 +50,9 @@ const Dashboard = () => {
     </div>
   );
 };
-export default Dashboard;
+export default connect(
+  null,
+  {
+    usersDataAction
+  }
+)(Dashboard);

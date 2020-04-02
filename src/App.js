@@ -1,15 +1,20 @@
 import React from "react";
 import "./styles.scss";
-import {
-  Dashboard
-} from './components';
+import { Dashboard, UserPage } from "./components";
+
+import { Route, Switch } from "react-router";
 
 export default function App() {
   return (
     <div className="App">
       <h1>Select users</h1>
       <div className="flexible jBetween">
-      <Dashboard />
+        <Dashboard />
+        <Switch>
+          {/* <Route exact path="/" component={Dashboard} /> */}
+          {/* <Route path="/users" components={ UserPage } /> */}
+          <Route path="/:userId" component={UserPage} />
+        </Switch>
       </div>
     </div>
   );
