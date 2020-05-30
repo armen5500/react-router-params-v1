@@ -3,7 +3,7 @@ import "./styles.scss";
 import { Dashboard, UserPage } from "./components";
 
 import { Route, Switch } from "react-router";
-
+// barev Alik jas 
 export default function App() {
   return (
     <div className="App">
